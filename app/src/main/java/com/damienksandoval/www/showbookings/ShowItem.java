@@ -1,21 +1,32 @@
 package com.damienksandoval.www.showbookings;
 
+import java.util.ArrayList;
+
 /**
- * Created by Toshiba on 3/17/2017.
+ * ShowItem class is used for creating events. Events are currently stored in an ArrayList with
+ * future plans of implementing a remote database
  */
 
 public class ShowItem {
-    private String showDate;
+    private String showName;
     private int capacity;
     private int date;
 
 
-    public String getShowDate() {
-        return showDate;
+    ArrayList<ShowItem> showList = new ArrayList<ShowItem>();
+
+    public ShowItem(String name, int venCapacity, int showDate){
+        this.showName = name;
+        this.capacity = venCapacity;
+        this.date = showDate;
     }
 
-    public void setShowDate(String showDate) {
-        this.showDate = showDate;
+    public String getShowName() {
+        return showName;
+    }
+
+    public void setShowName(String showName) {
+        this.showName = showName;
     }
 
     public int getCapacity() {
@@ -33,4 +44,11 @@ public class ShowItem {
     public void setDate(int date) {
         this.date = date;
     }
+
+    public void addListItem(){
+        ShowItem newShow = new ShowItem("Rock Concert",500,112204);
+        showList.add(newShow);
+
+    }
+
 }
