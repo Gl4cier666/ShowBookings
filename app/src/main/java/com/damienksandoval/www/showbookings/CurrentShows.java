@@ -13,14 +13,15 @@ import android.support.v7.recyclerview.*;
 
 public class CurrentShows extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_shows2);
-        RecyclerView myRecyclerView = (RecyclerView) findViewById(R.id.show_list);
-        myRecyclerView.setHasFixedSize(true);
+    RecyclerView myRecyclerView;
+    LinearLayoutManager myLayoutManager = new LinearLayoutManager(this);
 
-        LinearLayoutManager myLayoutManager = new LinearLayoutManager(this);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_shows);
+        myRecyclerView = (RecyclerView) findViewById(R.id.show_list);
+        myRecyclerView.setHasFixedSize(true);
         myLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         myRecyclerView.setLayoutManager(myLayoutManager);
 

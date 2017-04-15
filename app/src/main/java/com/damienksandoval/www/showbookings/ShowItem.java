@@ -13,9 +13,7 @@ public class ShowItem {
     private int date;
 
 
-    ArrayList<ShowItem> showList = new ArrayList<ShowItem>();
-
-    public ShowItem(String name, int venCapacity, int showDate){
+    public ShowItem(String name, int venCapacity, int showDate) {
         this.showName = name;
         this.capacity = venCapacity;
         this.date = showDate;
@@ -43,12 +41,6 @@ public class ShowItem {
 
     public void setDate(int date) {
         this.date = date;
-    }
-
-    public void addListItem(){
-        ShowItem newShow = new ShowItem("Rock Concert",500,112204);
-        showList.add(newShow);
-
     }
 
 }
