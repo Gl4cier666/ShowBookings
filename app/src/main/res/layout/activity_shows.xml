@@ -14,11 +14,12 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="30sp"
-            android:text="Agenda"/>
+            android:text="Agenda"
+            android:textSize="30sp" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -27,9 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="?attr/actionBarSize"
-        >
-
-    </android.support.v7.widget.RecyclerView>
+        />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

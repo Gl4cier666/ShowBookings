@@ -26,6 +26,7 @@ public class Shows extends AppCompatActivity {
                 setContentView(R.layout.activity_addshow);
             }
         });
+        RecyclerAdapter rAdapter = new RecyclerAdapter();
         showView = (RecyclerView)findViewById(R.id.show_list);
     }
 
