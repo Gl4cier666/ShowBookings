@@ -25,9 +25,17 @@ public class Shows extends AppCompatActivity {
             public void onClick(View view) {
                 setContentView(R.layout.activity_addshow);
             }
-        });
+        });}
+
+        public void onBackpressed(){
+        if(this.findViewById(android.R.id.content)== this.findViewById(R.id.activity_addshow)){
+            setContentView(R.layout.activity_shows);
+        }
+    }
+
+
         RecyclerAdapter rAdapter = new RecyclerAdapter();
-        showView = (RecyclerView)findViewById(R.id.show_list);
+        View showView = (RecyclerView)findViewById(R.id.show_list);
     }
 
     @Override
