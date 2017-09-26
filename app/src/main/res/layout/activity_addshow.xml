@@ -23,7 +23,7 @@
         android:id="@+id/showNameIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_alignTop="@+id/showName"
@@ -31,7 +31,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <TextView
-        android:id="@+id/showStartDateLabel"
+        android:id="@+id/showStartD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -43,15 +43,16 @@
     <DatePicker
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
+        android:id="@+id/sDatePicker"
+        android:layout_marginTop="105dp"
         android:datePickerMode="spinner"
         android:calendarViewShown="false">
     </DatePicker>
     <TextView
-        android:id="@+id/showDateLabel"
+        android:id="@+id/showEndD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="325dp"
+        android:layout_marginTop="330dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:text="End Date:"
@@ -60,15 +61,15 @@
     <DatePicker
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="325dp"
+        android:layout_marginTop="335dp"
         android:datePickerMode="spinner"
         android:calendarViewShown="false">
     </DatePicker>
     <TextView
-        android:id="@+id/showStartTimeLabel"
+        android:id="@+id/showStartT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="555dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:text="Start Time:"
@@ -76,14 +77,14 @@
     <TimePicker
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="560dp"
         android:timePickerMode="spinner">
     </TimePicker>
     <TextView
-        android:id="@+id/showTimeLabel"
+        android:id="@+id/showEndTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="750dp"
+        android:layout_marginTop="755dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:text="End Time:"
@@ -91,19 +92,19 @@
     <TimePicker
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="750dp"
+        android:layout_marginTop="760dp"
         android:timePickerMode="spinner">
     </TimePicker>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/saveShowButton"
         android:text="Save Event"
         android:backgroundTint="@color/colorPrimary"
         android:textColor="@android:color/white"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="1000dp"
         android:layout_marginBottom="30dp"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
 </ScrollView>

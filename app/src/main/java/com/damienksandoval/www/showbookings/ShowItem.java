@@ -10,37 +10,47 @@ import java.util.ArrayList;
 public class ShowItem {
     private String showName;
     private int capacity;
-    private int date;
+    private int date;//Need to change into 3 ints for spinner
+    private int time;
 
 
-    public ShowItem(String name, int venCapacity, int showDate) {
+    public ShowItem(String name, int venCapacity, int showDate, int showTime) {
         this.showName = name;
         this.capacity = venCapacity;
         this.date = showDate;
+        this.time = showTime;
     }
 
     public String getShowName() {
         return showName;
     }
 
-    public void setShowName(String showName) {
-        this.showName = showName;
+    public void setShowName(String newShowName) {
+        this.showName = newShowName;
     }
 
     public int getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void setCapacity(int newCapacity) {
+        this.capacity = newCapacity;
     }
 
     public int getDate() {
         return date;
     }
 
-    public void setDate(int date) {
-        this.date = date;
+    public void setDate(int newDate) {
+        this.date = newDate;
+    }
+
+    public int getTime(){
+        return time;
+    }
+
+    public void setTime(int newTime){
+        this.time = newTime;
     }
 
 }
