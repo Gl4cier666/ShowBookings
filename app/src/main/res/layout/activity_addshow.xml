@@ -60,6 +60,7 @@
 
     <DatePicker
         android:layout_width="match_parent"
+        android:id="@+id/eDatePicker"
         android:layout_height="match_parent"
         android:layout_marginTop="335dp"
         android:datePickerMode="spinner"
@@ -77,6 +78,7 @@
     <TimePicker
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/sTimePicker"
         android:layout_marginTop="560dp"
         android:timePickerMode="spinner">
     </TimePicker>
@@ -92,6 +94,7 @@
     <TimePicker
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/eTimePicker"
         android:layout_marginTop="760dp"
         android:timePickerMode="spinner">
     </TimePicker>
