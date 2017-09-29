@@ -55,20 +55,36 @@ public class ShowItem {
         this.capacity = newCapacity;
     }
 
-    public int getHour() {
-        return hour;
+    public int getShour() {
+        return shour;
     }
 
-    public void setHour(int hour) {
-        this.hour = hour;
+    public void setShour(int shour) {
+        this.shour = shour;
     }
 
-    public int getMinute() {
-        return minute;
+    public int getSminute() {
+        return sminute;
     }
 
-    public void setMinute(int minute) {
-        this.minute = minute;
+    public void setSminute(int sminute) {
+        this.sminute = sminute;
+    }
+
+    public int getEhour() {
+        return ehour;
+    }
+
+    public void setEhour(int ehour) {
+        this.ehour = ehour;
+    }
+
+    public int getEminute() {
+        return eminute;
+    }
+
+    public void setEminute(int eminute) {
+        this.eminute = eminute;
     }
 
     public int getSday() {

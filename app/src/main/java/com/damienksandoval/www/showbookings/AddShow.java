@@ -1,5 +1,6 @@
 package com.damienksandoval.www.showbookings;
 
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,11 @@ public class AddShow extends AppCompatActivity {
         saveShow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
+                String showtitle = findViewById(R.id.showName).toString();
+                newShow.setShowName(showtitle);
+                saveShowDate();
+                saveShowTime();
+
             }
         });
     }
@@ -37,8 +43,18 @@ public class AddShow extends AppCompatActivity {
 
     }
     private void saveShowTime(){
-
-    }
+        if(Build.VERSION.SDK_INT < 23 ){
+        newShow.setShour(showStartTime.getCurrentHour());
+        newShow.setSminute(showStartTime.getCurrentMinute());
+        newShow.setEhour(showEndTime.getCurrentHour());
+        newShow.setEminute(showEndTime.getCurrentMinute());
+    } else {
+            newShow.setShour(showStartTime.getHour());
+            newShow.setSminute(showStartTime.getMinute());
+            newShow.setEhour(showEndTime.getHour());
+            newShow.setEminute(showEndTime.getMinute());
+        }
+        }
 
 
 
