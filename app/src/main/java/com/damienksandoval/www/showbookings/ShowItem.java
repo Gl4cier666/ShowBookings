@@ -1,12 +1,14 @@
 package com.damienksandoval.www.showbookings;
 
 
+import java.io.Serializable;
+
 /**
  * ShowItem class is used for creating events. Events are currently stored in an ArrayList with
  * future plans of implementing a remote database
  */
 
-public class ShowItem {
+public class ShowItem implements Serializable {
     private String showName;
     private int capacity;
     private int sday;
@@ -37,7 +39,6 @@ public class ShowItem {
         this.eminute = eminute;
     }
 
-    //REBUILD ALL SETTERS AND GETTERS
 
     public String getShowName() {
         return showName;

@@ -21,6 +21,7 @@ public class Shows extends AppCompatActivity {
         setContentView(R.layout.activity_shows);
         RecyclerAdapter rAdapter = new RecyclerAdapter();
         showView = (RecyclerView)findViewById(R.id.show_list);
+        View AddShow;
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
