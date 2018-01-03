@@ -1,7 +1,9 @@
 package com.damienksandoval.www.showbookings;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,8 +20,6 @@ import java.io.ObjectOutputStream;
 
 public class AddShow extends AppCompatActivity {
     public ShowItem newShow;
-    private static final String FILENAME = "event_database.bin";
-    private static final File database = new File()
     private Button saveShow;
     private DatePicker showStartDate;
     private DatePicker showEndDate;
@@ -39,20 +39,31 @@ public class AddShow extends AppCompatActivity {
         saveShow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-                EditText shownamein = (EditText)findViewById(R.id.showNameIn);
+                EditText shownamein = (EditText) findViewById(R.id.showNameIn);
                 String showtitle = shownamein.getText().toString();
-                newShow = new ShowItem(showtitle,0,0,0,0,0,0,0,0,0,0,0);
+                newShow = new ShowItem(showtitle, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
                 saveShowDate();
                 saveShowTime();
-                try {
-                    ObjectOutputStream eventSaver = new ObjectOutputStream(new FileOutputStream(FILENAME));
-                    eventSaver.writeObject(newShow);
-                    eventSaver.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                        File sdcard = Environment.getExternalStorageDirectory();
+                        File dir = new File(sdcard.getAbsolutePath()+"/ShowBookings/");
+                        if(!dir.exists()){
+                            dir.mkdir();
+                        }
+                        try{
+                        File file = new File(dir,"show_database.bin");
+                        ObjectOutputStream eventSaver = new ObjectOutputStream(new FileOutputStream(file));
+                        eventSaver.writeObject(newShow);
+                        eventSaver.close();
+                        // ObjectOutputStream eventSaver = new ObjectOutputStream(new FileOutputStream(database));
+                        //eventSaver.writeObject(newShow);
+                        //eventSaver.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("Done Writing");
+                    startActivity(new Intent(AddShow.this,Shows.class));
                 }
-
-
             }
         });
     }
@@ -79,7 +90,5 @@ public class AddShow extends AppCompatActivity {
             newShow.setEminute(showEndTime.getMinute());
         }
         }
-
-
 
 }
