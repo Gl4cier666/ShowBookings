@@ -13,13 +13,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddShow extends AppCompatActivity {
     public ShowItem newShow;
+    private List<ShowItem> showItemList;
+    private List<ShowItem> itemList;
     private Button saveShow;
     private DatePicker showStartDate;
     private DatePicker showEndDate;
@@ -35,10 +42,9 @@ public class AddShow extends AppCompatActivity {
         showEndDate = (DatePicker) findViewById(R.id.eDatePicker);
         showStartTime = (TimePicker) findViewById(R.id.sTimePicker);
         showEndTime = (TimePicker) findViewById(R.id.eTimePicker);
-
+//Save showItem to a list and save the list in an external file
         saveShow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
                 EditText shownamein = (EditText) findViewById(R.id.showNameIn);
                 String showtitle = shownamein.getText().toString();
                 newShow = new ShowItem(showtitle, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -47,20 +53,33 @@ public class AddShow extends AppCompatActivity {
                 if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                         File sdcard = Environment.getExternalStorageDirectory();
                         File dir = new File(sdcard.getAbsolutePath()+"/ShowBookings/");
+                        showItemList = new ArrayList<>();
+                        itemList = new ArrayList<>();
                         if(!dir.exists()){
                             dir.mkdir();
                         }
                         try{
-                        File file = new File(dir,"show_database.bin");
-                        ObjectOutputStream eventSaver = new ObjectOutputStream(new FileOutputStream(file));
-                        eventSaver.writeObject(newShow);
-                        eventSaver.close();
-                        // ObjectOutputStream eventSaver = new ObjectOutputStream(new FileOutputStream(database));
-                        //eventSaver.writeObject(newShow);
-                        //eventSaver.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                            File file = new File(dir,"show_database.bin");
+                            if(file.exists()) {
+                                ObjectInputStream storedDB = new ObjectInputStream(new FileInputStream(file));
+                                try {
+                                    itemList = (List<ShowItem>) storedDB.readObject();
+                                } catch (ClassNotFoundException | EOFException a) {
+                                    a.printStackTrace();
+                                }
+                                for (int i = 0; i <= itemList.size() - 1; i++) {
+                                    ShowItem value = itemList.get(i);
+                                    showItemList.add(value);
+                                }
+                                storedDB.close();
+                            }
+                            showItemList.add(newShow);
+                            ObjectOutputStream eventSaver = new ObjectOutputStream(new FileOutputStream(file));
+                            eventSaver.writeObject(showItemList);
+                            eventSaver.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     System.out.println("Done Writing");
                     startActivity(new Intent(AddShow.this,Shows.class));
                 }
